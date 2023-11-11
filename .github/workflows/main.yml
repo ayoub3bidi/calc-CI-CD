@@ -1,4 +1,4 @@
-name: Update Docker app-calc
+name: Docker app-calc
 
 on:
   push:
@@ -9,14 +9,11 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      -
-        name: Login to DockerHub
+      - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.USERNAME }}
@@ -31,4 +28,4 @@ jobs:
           context: ./sources
           file: ./sources/Dockerfile
           push: true
-          tags: mhachani/docker:1.0.${{github.run_number}}
+          tags: ayoub3bidi/mini-projet-devops:1.0.${{github.run_number}}
